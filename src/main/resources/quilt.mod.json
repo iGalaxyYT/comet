@@ -23,6 +23,10 @@
 			"init": {
 				"adapter": "kotlin",
 				"value": "dev.igalaxy.comet.Comet"
+			},
+			"modmenu": {
+				"adapter": "kotlin",
+				"value": "dev.igalaxy.comet.config.modmenu.ModMenuIntegration"
 			}
 		},
 		"depends": [

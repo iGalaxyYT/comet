@@ -17,15 +17,10 @@ base.archivesName.set(archives_base_name)
 val javaVersion = 17
 
 repositories {
-	// Add repositories to retrieve artifacts from in here.
-	// You should only use this when depending on other mods because
-	// Loom adds the essential maven repositories to download Minecraft and libraries from automatically.
-	// See https://docs.gradle.org/current/userguide/declaring_repositories.html
-	// for more information about repositories.
+	maven("https://maven.isxander.dev/releases")
+	maven("https://maven.terraformersmc.com/releases/")
 }
 
-// All the dependencies are declared at gradle/libs.version.toml and referenced with "libs.<id>"
-// See https://docs.gradle.org/current/userguide/platforms.html for information on how version catalogs work.
 dependencies {
 	minecraft(libs.minecraft)
 	mappings(
@@ -34,32 +29,18 @@ dependencies {
 		}
 	)
 
-	// Replace the above line with the block below if you want to use Mojang mappings as your primary mappings, falling back on QM for parameters and Javadocs
-	/*
-	mappings(
-		loom.layered {
-			mappings(variantOf(libs.quilt.mappings) { classifier("intermediary-v2") })
-			officialMojangMappings()
-		}
-	)
-	*/
-
 	modImplementation(libs.quilt.loader)
-
-
-	// QSL is not a complete API; You will need Quilted Fabric API to fill in the gaps.
-	// Quilted Fabric API will automatically pull in the correct QSL version.
 	modImplementation(libs.qfapi)
-	// modImplementation(libs.bundles.qfapi) // If you wish to use the deprecated Fabric API modules
-
 	modImplementation(libs.qkl)
+
+	modImplementation(libs.yacl)
+	modImplementation(libs.modmenu)
 }
 
 tasks {
 	withType<KotlinCompile> {
 		kotlinOptions {
 			jvmTarget = javaVersion.toString()
-			// languageVersion: A.B of the kotlin plugin version A.B.C
 			languageVersion = libs.plugins.kotlin.get().version.requiredVersion.substringBeforeLast('.')
 		}
 	}
@@ -87,8 +68,6 @@ tasks {
 		options.encoding = "UTF-8"
 	}
 
-	// Run `./gradlew wrapper --gradle-version <newVersion>` or `gradle wrapper --gradle-version <newVersion>` to update gradle scripts
-	// BIN distribution should be sufficient for the majority of mods
 	wrapper {
 		distributionType = Wrapper.DistributionType.BIN
 	}
@@ -110,20 +89,12 @@ if (JavaVersion.current() < targetJavaVersion) {
 }
 
 java {
-	// Loom will automatically attach sourcesJar to a RemapSourcesJar task and to the "build" task if it is present.
-	// If you remove this line, sources will not be generated.
 	withSourcesJar()
 
-	// If this mod is going to be a library, then it should also generate Javadocs in order to aid with development.
-	// Uncomment this line to generate them.
-	// withJavadocJar()
-
-	// Still required by IDEs such as Eclipse and VSC
 	sourceCompatibility = targetJavaVersion
 	targetCompatibility = targetJavaVersion
 }
 
-// Configure the maven publication
 publishing {
 	publications {
 		register<MavenPublication>("Maven") {
@@ -131,11 +102,7 @@ publishing {
 		}
 	}
 
-	// See https://docs.gradle.org/current/userguide/publishing_maven.html for information on how to set up publishing.
 	repositories {
-		// Add repositories to publish to here.
-		// Notice: This block does NOT have the same function as the block in the top level.
-		// The repositories here will be used for publishing your artifact, not for
-		// retrieving dependencies.
+
 	}
 }

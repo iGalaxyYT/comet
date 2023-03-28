@@ -1,47 +1,57 @@
 {
 	"schema_version": 1,
 	"quilt_loader": {
-		"group": "com.example",
-		"id": "example_mod",
+		"group": "dev.igalaxy",
+		"id": "comet",
 		"version": "${version}",
 		"metadata": {
-			"name": "Mod Name",
-			"description": "A short description of your mod.",
+			"name": "comet",
+			"description": "iGalaxy's personal minecraft client (comfort) mod",
+			"license": "MIT",
 			"contributors": {
-				"Your name here": "Owner"
+				"iGalaxy": "Creator"
 			},
 			"contact": {
-				"homepage": "https://example.com/",
-				"issues": "https://github.com/QuiltMC/quilt-kotlin-template-mod/issues",
-				"sources": "https://github.com/QuiltMC/quilt-kotlin-template-mod"
+				"homepage": "https://github.com/iGalaxyYT/comet",
+				"issues": "https://github.com/iGalaxyYT/comet/issues",
+				"sources": "https://github.com/iGalaxyYT/comet"
 			},
-			"icon": "assets/example_mod/icon.png"
+			"icon": "assets/comet/icon.png"
 		},
 		"intermediate_mappings": "net.fabricmc:intermediary",
 		"entrypoints": {
 			"init": {
 				"adapter": "kotlin",
-				"value": "com.example.example_mod.ExampleMod"
+				"value": "dev.igalaxy.comet.Comet"
 			}
 		},
 		"depends": [
 			{
 				"id": "quilt_loader",
-				"versions": ">=0.17.0-"
+				"versions": ">=0.18.6-"
 			},
 			{
 				"id": "quilted_fabric_api",
-				"versions": ">=4.0.0-"
+				"versions": ">=5.0.0-"
 			},
 			{
 				"id": "qkl",
-				"versions": ">=0.1.4-"
+				"versions": ">=1.1.1-"
 			},
 			{
 				"id": "minecraft",
-				"versions": ">=1.19.2"
+				"versions": ">=1.19.3"
+			},
+			{
+				"id": "yet-another-config-lib",
+				"versions": ">=2.2.0"
+			},
+			{
+				"id": "modmenu",
+				"versions": ">=5.1.0-",
+				"optional": true
 			}
 		]
 	},
-	"mixin": "example_mod.mixins.json"
+	"mixin": "comet.mixins.json"
 }

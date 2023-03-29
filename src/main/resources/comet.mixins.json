@@ -5,7 +5,10 @@
   "compatibilityLevel": "JAVA_17",
   "mixins": [],
   "client": [
-    "TitleScreenMixin"
+    "ClientPlayNetworkHandlerMixin",
+    "EntityContentMixin",
+    "SocialInteractionsPlayerListEntryMixin",
+    "SocialInteractionsPlayerListWidgetMixin"
   ],
   "injectors": {
     "defaultRequire": 1

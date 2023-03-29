@@ -19,6 +19,18 @@ val javaVersion = 17
 repositories {
 	maven("https://maven.isxander.dev/releases")
 	maven("https://maven.terraformersmc.com/releases/")
+
+	exclusiveContent {
+		forRepository {
+			maven {
+				name = "Modrinth"
+				url = uri("https://api.modrinth.com/maven")
+			}
+		}
+		filter {
+			includeGroup("maven.modrinth")
+		}
+	}
 }
 
 dependencies {
@@ -35,6 +47,10 @@ dependencies {
 
 	modImplementation(libs.yacl)
 	modImplementation(libs.modmenu)
+
+	modLocalRuntime(libs.lazydfu)
+	modLocalRuntime(libs.sodium)
+	modLocalRuntime(libs.indium)
 }
 
 tasks {

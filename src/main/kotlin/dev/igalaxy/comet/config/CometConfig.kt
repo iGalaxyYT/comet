@@ -19,15 +19,15 @@ class CometConfig {
         fun makeScreen(parent: Screen): Screen {
             return YetAnotherConfigLib.create(INSTANCE, fun(defaults: CometConfig, config: CometConfig, builder: YetAnotherConfigLib.Builder): YetAnotherConfigLib.Builder {
                 val categoryBuilder = ConfigCategory.createBuilder()
-                    .name(Text.translatable("comet.title"))
+                    .name(Text.translatable("comet.config.title"))
 
                 val modulesGroup = OptionGroup.createBuilder()
-                    .name(Text.translatable("comet.group.modules.title"))
-                    .tooltip(Text.translatable("comet.group.modules.description"))
+                    .name(Text.translatable("comet.config.group.modules.title"))
+                    .tooltip(Text.translatable("comet.config.group.modules.description"))
 
                 val pronounsOption = Option.createBuilder(Boolean::class.java)
-                    .name(Text.translatable("comet.option.pronouns"))
-                    .tooltip(Text.translatable("comet.option.pronouns.description"))
+                    .name(Text.translatable("comet.config.option.pronouns"))
+                    .tooltip(Text.translatable("comet.config.option.pronouns.description"))
                     .binding(
                         defaults.pronouns,
                         { config.pronouns },
@@ -42,7 +42,7 @@ class CometConfig {
                 categoryBuilder.group(modulesGroup.build())
 
                 return builder
-                    .title(Text.translatable("comet.title"))
+                    .title(Text.translatable("comet.config.title"))
                     .category(categoryBuilder.build())
             }).generateScreen(parent)
         }

@@ -1,0 +1,22 @@
+{
+  "comet.pronouns.pronoun.hh": "he/him",
+  "comet.pronouns.pronoun.hi": "he/it",
+  "comet.pronouns.pronoun.hs": "he/she",
+  "comet.pronouns.pronoun.ht": "he/they",
+  "comet.pronouns.pronoun.ih": "it/him",
+  "comet.pronouns.pronoun.ii": "it/its",
+  "comet.pronouns.pronoun.is": "it/she",
+  "comet.pronouns.pronoun.it": "it/they",
+  "comet.pronouns.pronoun.shh": "she/him",
+  "comet.pronouns.pronoun.sh": "she/her",
+  "comet.pronouns.pronoun.si": "she/it",
+  "comet.pronouns.pronoun.st": "she/they",
+  "comet.pronouns.pronoun.th": "they/he",
+  "comet.pronouns.pronoun.ti": "they/it",
+  "comet.pronouns.pronoun.ts": "they/she",
+  "comet.pronouns.pronoun.tt": "they/them",
+  "comet.pronouns.pronoun.any": "any",
+  "comet.pronouns.pronoun.other": "other",
+  "comet.pronouns.pronoun.ask": "ask",
+  "comet.pronouns.pronoun.avoid": "avoid"
+}

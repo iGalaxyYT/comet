@@ -11,6 +11,10 @@ loom = "1.+"
 yacl = "2.2.0"
 modmenu = "5.1.0-beta.4"
 
+lazydfu = "0.1.3"
+sodium = "mc1.19.3-0.4.9"
+indium = "1.0.14+mc1.19.3"
+
 [libraries]
 minecraft = { module = "com.mojang:minecraft", version.ref = "minecraft" }
 qfapi = { module = "org.quiltmc.quilted-fabric-api:quilted-fabric-api", version.ref = "qfapi" }
@@ -22,6 +26,10 @@ quilt_mappings = { module = "org.quiltmc:quilt-mappings", version.ref = "mapping
 
 yacl = { module = "dev.isxander:yet-another-config-lib", version.ref = "yacl" }
 modmenu = { module = "com.terraformersmc:modmenu", version.ref = "modmenu" }
+
+lazydfu = { module = "maven.modrinth:lazydfu", version.ref = "lazydfu" }
+sodium = { module = "maven.modrinth:sodium", version.ref = "sodium" }
+indium = { module = "maven.modrinth:indium", version.ref = "indium" }
 
 [bundles]
 quilted_fabric_api = ["qfapi", "qfapi_deprecated"]

@@ -181,6 +181,13 @@
       "ascent": 7,
       "height": 8,
       "chars": ["Z"]
+    },
+    {
+      "type": "bitmap",
+      "file": "comet:font/negative_space.png",
+      "ascent": -50000,
+      "height": -3,
+      "chars": ["."]
     }
   ]
 }

@@ -108,7 +108,7 @@ object CometTooltipModule : CometModule, ItemTooltipCallback {
 
         val prefix = if (isMutuallyExclusiveEnchantment(enchantment)) buildText {
             font(Identifier("comet", "sga")) {
-                literal(getEnchantmentGroup(enchantment).toString())
+                literal("${getEnchantmentGroup(enchantment)}.")
             }
             literal(" ")
         } else Text.empty()

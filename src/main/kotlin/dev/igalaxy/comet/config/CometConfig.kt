@@ -26,13 +26,13 @@ class CometConfig {
                     .tooltip(Text.translatable("comet.config.group.modules.description"))
 
                 val pronounsOption = Option.createBuilder(Boolean::class.java)
-                    .name(Text.translatable("comet.config.option.pronouns"))
-                    .tooltip(Text.translatable("comet.config.option.pronouns.description"))
+                    .name(Text.translatable("comet.config.option.tooltipModule"))
+                    .tooltip(Text.translatable("comet.config.option.tooltipModule.description"))
                     .binding(
-                        defaults.pronouns,
-                        { config.pronouns },
+                        defaults.tooltipModule,
+                        { config.tooltipModule },
                         { value: Boolean ->
-                            config.pronouns = value
+                            config.tooltipModule = value
                         }
                     )
                     .controller(::TickBoxController)
@@ -49,5 +49,5 @@ class CometConfig {
     }
 
     @ConfigEntry
-    var pronouns: Boolean = true
+    var tooltipModule: Boolean = true
 }

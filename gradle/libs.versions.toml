@@ -1,19 +1,18 @@
 [versions]
-kotlin = "1.8.10"
+kotlin = "1.8.20"
 
-minecraft = "1.19.3"
-qfapi = "5.0.0-beta.8+0.75.1-1.19.3"
-qkl = "1.1.1+kt.1.8.10+flk.1.9.2"
-loader = "0.18.6"
-mappings = "1.19.3+build.28"
+minecraft = "1.19.4"
+qfapi = "6.0.0-beta.5+0.78.0-1.19.4"
+qkl = "2.0.2+kt.1.8.20+flk.1.9.3"
+loader = "0.18.10"
+mappings = "1.19.4+build.10"
 loom = "1.+"
 
-yacl = "2.2.0"
-modmenu = "5.1.0-beta.4"
+yacl = "2.4.2"
+modmenu = "6.2.1"
 
-lazydfu = "0.1.3"
-sodium = "mc1.19.3-0.4.9"
-indium = "1.0.14+mc1.19.3"
+sodium = "mc1.19.4-0.4.10"
+indium = "1.0.15+mc1.19.4"
 
 [libraries]
 minecraft = { module = "com.mojang:minecraft", version.ref = "minecraft" }
@@ -27,7 +26,6 @@ quilt_mappings = { module = "org.quiltmc:quilt-mappings", version.ref = "mapping
 yacl = { module = "dev.isxander:yet-another-config-lib", version.ref = "yacl" }
 modmenu = { module = "com.terraformersmc:modmenu", version.ref = "modmenu" }
 
-lazydfu = { module = "maven.modrinth:lazydfu", version.ref = "lazydfu" }
 sodium = { module = "maven.modrinth:sodium", version.ref = "sodium" }
 indium = { module = "maven.modrinth:indium", version.ref = "indium" }
 

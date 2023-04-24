@@ -1,0 +1,186 @@
+{
+  "providers": [
+    {
+      "type": "bitmap",
+      "file": "minecraft:particle/sga_a.png",
+      "ascent": 7,
+      "height": 8,
+      "chars": ["A"]
+    },
+    {
+      "type": "bitmap",
+      "file": "minecraft:particle/sga_b.png",
+      "ascent": 7,
+      "height": 8,
+      "chars": ["B"]
+    },
+    {
+      "type": "bitmap",
+      "file": "minecraft:particle/sga_c.png",
+      "ascent": 7,
+      "height": 8,
+      "chars": ["C"]
+    },
+    {
+      "type": "bitmap",
+      "file": "minecraft:particle/sga_d.png",
+      "ascent": 7,
+      "height": 8,
+      "chars": ["D"]
+    },
+    {
+      "type": "bitmap",
+      "file": "minecraft:particle/sga_e.png",
+      "ascent": 7,
+      "height": 8,
+      "chars": ["E"]
+    },
+    {
+      "type": "bitmap",
+      "file": "minecraft:particle/sga_f.png",
+      "ascent": 7,
+      "height": 8,
+      "chars": ["F"]
+    },
+    {
+      "type": "bitmap",
+      "file": "minecraft:particle/sga_g.png",
+      "ascent": 7,
+      "height": 8,
+      "chars": ["G"]
+    },
+    {
+      "type": "bitmap",
+      "file": "minecraft:particle/sga_h.png",
+      "ascent": 7,
+      "height": 8,
+      "chars": ["H"]
+    },
+    {
+      "type": "bitmap",
+      "file": "minecraft:particle/sga_i.png",
+      "ascent": 7,
+      "height": 8,
+      "chars": ["I"]
+    },
+    {
+      "type": "bitmap",
+      "file": "minecraft:particle/sga_j.png",
+      "ascent": 7,
+      "height": 8,
+      "chars": ["J"]
+    },
+    {
+      "type": "bitmap",
+      "file": "minecraft:particle/sga_k.png",
+      "ascent": 7,
+      "height": 8,
+      "chars": ["K"]
+    },
+    {
+      "type": "bitmap",
+      "file": "minecraft:particle/sga_l.png",
+      "ascent": 7,
+      "height": 8,
+      "chars": ["L"]
+    },
+    {
+      "type": "bitmap",
+      "file": "minecraft:particle/sga_m.png",
+      "ascent": 7,
+      "height": 8,
+      "chars": ["M"]
+    },
+    {
+      "type": "bitmap",
+      "file": "minecraft:particle/sga_n.png",
+      "ascent": 7,
+      "height": 8,
+      "chars": ["N"]
+    },
+    {
+      "type": "bitmap",
+      "file": "minecraft:particle/sga_o.png",
+      "ascent": 7,
+      "height": 8,
+      "chars": ["O"]
+    },
+    {
+      "type": "bitmap",
+      "file": "minecraft:particle/sga_p.png",
+      "ascent": 7,
+      "height": 8,
+      "chars": ["P"]
+    },
+    {
+      "type": "bitmap",
+      "file": "minecraft:particle/sga_q.png",
+      "ascent": 7,
+      "height": 8,
+      "chars": ["Q"]
+    },
+    {
+      "type": "bitmap",
+      "file": "minecraft:particle/sga_r.png",
+      "ascent": 7,
+      "height": 8,
+      "chars": ["R"]
+    },
+    {
+      "type": "bitmap",
+      "file": "minecraft:particle/sga_s.png",
+      "ascent": 7,
+      "height": 8,
+      "chars": ["S"]
+    },
+    {
+      "type": "bitmap",
+      "file": "minecraft:particle/sga_t.png",
+      "ascent": 7,
+      "height": 8,
+      "chars": ["T"]
+    },
+    {
+      "type": "bitmap",
+      "file": "minecraft:particle/sga_u.png",
+      "ascent": 7,
+      "height": 8,
+      "chars": ["U"]
+    },
+    {
+      "type": "bitmap",
+      "file": "minecraft:particle/sga_v.png",
+      "ascent": 7,
+      "height": 8,
+      "chars": ["V"]
+    },
+    {
+      "type": "bitmap",
+      "file": "minecraft:particle/sga_w.png",
+      "ascent": 7,
+      "height": 8,
+      "chars": ["W"]
+    },
+    {
+      "type": "bitmap",
+      "file": "minecraft:particle/sga_x.png",
+      "ascent": 7,
+      "height": 8,
+      "chars": ["X"]
+    },
+    {
+      "type": "bitmap",
+      "file": "minecraft:particle/sga_y.png",
+      "ascent": 7,
+      "height": 8,
+      "chars": ["Y"]
+    },
+    {
+      "type": "bitmap",
+      "file": "minecraft:particle/sga_z.png",
+      "ascent": 7,
+      "height": 8,
+      "chars": ["Z"]
+    }
+  ]
+}

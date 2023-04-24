@@ -1,0 +1,32 @@
+{
+  "providers": [
+    {
+      "type": "bitmap",
+      "file": "comet:font/pipe.png",
+      "ascent": 7,
+      "height": 10,
+      "chars": ["|"]
+    },
+    {
+      "type": "bitmap",
+      "file": "comet:font/pipe_out.png",
+      "ascent": 7,
+      "height": 10,
+      "chars": ["-"]
+    },
+    {
+      "type": "bitmap",
+      "file": "comet:font/pipe_end.png",
+      "ascent": 7,
+      "height": 7,
+      "chars": ["\\"]
+    },
+    {
+      "type": "bitmap",
+      "file": "comet:font/negative_space.png",
+      "ascent": -50000,
+      "height": -3,
+      "chars": ["."]
+    }
+  ]
+}

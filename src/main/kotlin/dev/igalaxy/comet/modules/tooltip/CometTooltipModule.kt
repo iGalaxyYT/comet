@@ -191,10 +191,10 @@ object CometTooltipModule : CometModule, ItemTooltipCallback {
                         }
                     }
                 }
-                if (text.key.startsWith("attribute.modifier")) {
+                if (text.key.startsWith("attribute")) {
                     val nextText = if (lines.size >= i + 2) lines[i + 1].asComponent() else null
-                    val outerPipe = if (nextText is TranslatableComponent && (nextText.key.startsWith("item.modifiers") || nextText.key.startsWith("attribute.modifier"))) "|" else "\\"
-                    val innerPipe = if (nextText is TranslatableComponent && nextText.key.startsWith("attribute.modifier")) "|" else "\\"
+                    val outerPipe = if (nextText is TranslatableComponent && (nextText.key.startsWith("item.modifiers") || nextText.key.startsWith("attribute"))) "|" else "\\"
+                    val innerPipe = if (nextText is TranslatableComponent && nextText.key.startsWith("attribute")) "|" else "\\"
                     lines[i] = buildText {
                         color(Color.GREY) {
                             font(TOOLTIP_FONT) { literal(outerPipe) }
@@ -217,6 +217,7 @@ object CometTooltipModule : CometModule, ItemTooltipCallback {
         context: TooltipContext?,
         lines: MutableList<Text>?
     ) {
+        if (!enabled) return
         if (stack == null) return
         if (lines == null) return
 

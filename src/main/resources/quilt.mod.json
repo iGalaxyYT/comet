@@ -9,7 +9,8 @@
 			"description": "iGalaxy's personal minecraft client (comfort) mod",
 			"license": "MIT",
 			"contributors": {
-				"iGalaxy": "Creator"
+				"iGalaxy": "Creator",
+				"@DyoudiM": "Icon Artist"
 			},
 			"contact": {
 				"homepage": "https://github.com/iGalaxyYT/comet",

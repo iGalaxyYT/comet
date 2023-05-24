@@ -25,7 +25,11 @@ class CometConfig {
                     .name(Text.translatable("comet.config.group.modules.title"))
                     .tooltip(Text.translatable("comet.config.group.modules.description"))
 
-                val pronounsOption = Option.createBuilder(Boolean::class.java)
+                val tweaksGroup = OptionGroup.createBuilder()
+                    .name(Text.translatable("comet.config.group.tweaks.title"))
+                    .tooltip(Text.translatable("comet.config.group.tweaks.description"))
+
+                val tooltipModule = Option.createBuilder(Boolean::class.java)
                     .name(Text.translatable("comet.config.option.tooltipModule"))
                     .tooltip(Text.translatable("comet.config.option.tooltipModule.description"))
                     .binding(
@@ -38,8 +42,23 @@ class CometConfig {
                     .controller(::TickBoxController)
                     .build()
 
-                modulesGroup.option(pronounsOption)
+                val serverNameLengthTweak = Option.createBuilder(Boolean::class.java)
+                    .name(Text.translatable("comet.config.option.serverNameLengthTweak"))
+                    .tooltip(Text.translatable("comet.config.option.serverNameLengthTweak.description"))
+                    .binding(
+                        defaults.serverNameLengthTweak,
+                        { config.serverNameLengthTweak },
+                        { value: Boolean ->
+                            config.serverNameLengthTweak = value
+                        }
+                    )
+                    .controller(::TickBoxController)
+                    .build()
+
+                modulesGroup.option(tooltipModule)
+                tweaksGroup.option(serverNameLengthTweak)
                 categoryBuilder.group(modulesGroup.build())
+                categoryBuilder.group(tweaksGroup.build())
 
                 return builder
                     .title(Text.translatable("comet.config.title"))
@@ -50,4 +69,7 @@ class CometConfig {
 
     @ConfigEntry
     var tooltipModule: Boolean = true
+
+    @ConfigEntry
+    var serverNameLengthTweak: Boolean = true
 }

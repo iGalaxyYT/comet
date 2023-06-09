@@ -21,7 +21,7 @@ object CometTooltipModule : CometModule, ItemTooltipCallback {
 
     private val TOOLTIP_FONT = Identifier("comet", "tooltip")
 
-    private fun overrideTrimTooltip(stack: ItemStack, player: PlayerEntity?, context: TooltipContext?, lines: MutableList<Text>) {
+    private fun overrideTrimTooltip(stack: ItemStack, player: PlayerEntity?, lines: MutableList<Text>) {
         if (player != null) {
             val trimHolder = ArmorTrimPermutation.getPermutationFromStack(player.world.registryManager, stack)
             if (trimHolder.isEmpty) return
@@ -121,7 +121,7 @@ object CometTooltipModule : CometModule, ItemTooltipCallback {
         }
     }
 
-    private fun overrideEnchantmentTooltip(stack: ItemStack, player: PlayerEntity?, context: TooltipContext?, lines: MutableList<Text>) {
+    private fun overrideEnchantmentTooltip(stack: ItemStack, lines: MutableList<Text>) {
         var enchantments = EnchantmentHelper.get(stack).keys.toList()//.sortedBy { it.getName(1).string.substringBeforeLast(" ") }
         enchantments = enchantments.sortedBy { it.isCursed }
         enchantments = enchantments.sortedByDescending { isMutuallyExclusiveEnchantment(it) }
@@ -161,16 +161,12 @@ object CometTooltipModule : CometModule, ItemTooltipCallback {
         })
     }
 
-    private fun overrideAttributes(stack: ItemStack, player: PlayerEntity?, context: TooltipContext?, lines: MutableList<Text>) {
+    private fun overrideAttributes(lines: MutableList<Text>) {
         val startIndex = lines.indexOfFirst {
             val text = it.asComponent()
             text is TranslatableComponent && text.key.startsWith("item.modifiers")
         }
         if (startIndex == -1) return
-        val endIndex = lines.indexOfLast {
-            val text = it.asComponent()
-            text is TranslatableComponent && text.key.startsWith("item.modifiers")
-        } + 1
         lines.add(startIndex, buildText {
             color(Color.GREY) {
                 literal("Attributes:")
@@ -225,9 +221,9 @@ object CometTooltipModule : CometModule, ItemTooltipCallback {
             lines.remove(Text.empty())
         }
 
-        overrideTrimTooltip(stack, player, context, lines)
-        overrideEnchantmentTooltip(stack, player, context, lines)
-        overrideAttributes(stack, player, context, lines)
+        overrideTrimTooltip(stack, player, lines)
+        overrideEnchantmentTooltip(stack, lines)
+        overrideAttributes(lines)
     }
 
 }

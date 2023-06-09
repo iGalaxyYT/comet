@@ -1,18 +1,18 @@
 [versions]
 kotlin = "1.8.20"
 
-minecraft = "1.19.4"
-qfapi = "6.0.0-beta.5+0.78.0-1.19.4"
+minecraft = "1.20"
+qfapi = "7.0.1+0.83.0-1.20"
 qkl = "2.0.2+kt.1.8.20+flk.1.9.3"
-loader = "0.18.10"
-mappings = "1.19.4+build.10"
-loom = "1.+"
+loader = "0.19.0-beta.18"
+mappings = "1.20-rc1+build.7"
+loom = "1.2+"
 
-yacl = "2.4.2"
-modmenu = "6.2.1"
+yacl = "3.0.1+1.20"
+modmenu = "7.0.1"
 
-sodium = "mc1.19.4-0.4.10"
-indium = "1.0.15+mc1.19.4"
+sodium = "mc1.20-0.4.10"
+indium = "1.0.18+mc1.20"
 
 [libraries]
 minecraft = { module = "com.mojang:minecraft", version.ref = "minecraft" }
@@ -23,7 +23,7 @@ qkl = { module = "org.quiltmc.quilt-kotlin-libraries:quilt-kotlin-libraries", ve
 quilt_loader = { module = "org.quiltmc:quilt-loader", version.ref = "loader" }
 quilt_mappings = { module = "org.quiltmc:quilt-mappings", version.ref = "mappings" }
 
-yacl = { module = "dev.isxander:yet-another-config-lib", version.ref = "yacl" }
+yacl = { module = "dev.isxander.yacl:yet-another-config-lib-fabric", version.ref = "yacl" }
 modmenu = { module = "com.terraformersmc:modmenu", version.ref = "modmenu" }
 
 sodium = { module = "maven.modrinth:sodium", version.ref = "sodium" }

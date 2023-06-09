@@ -18,6 +18,7 @@ val javaVersion = 17
 repositories {
 	maven("https://maven.isxander.dev/releases")
 	maven("https://maven.terraformersmc.com/releases/")
+	maven("https://jitpack.io")
 
 	exclusiveContent {
 		forRepository {

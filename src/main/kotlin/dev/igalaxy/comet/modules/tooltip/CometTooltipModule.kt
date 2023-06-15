@@ -17,7 +17,7 @@ import org.quiltmc.qsl.tooltip.api.client.ItemTooltipCallback
 
 object CometTooltipModule : CometModule, ItemTooltipCallback {
     override val enabled: Boolean
-        get() = Comet.CONFIG.tooltipModule
+        get() = Comet.CONFIG.tooltipEnabled
 
     private val TOOLTIP_FONT = Identifier("comet", "tooltip")
 

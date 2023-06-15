@@ -46,6 +46,9 @@ dependencies {
 	modImplementation(libs.qkl)
 
 	modImplementation(libs.yacl)
+	modImplementation(libs.discord)
+	include(libs.discord)?.let { modImplementation(it) }
+
 	modImplementation(libs.modmenu)
 
 	modLocalRuntime(libs.sodium)

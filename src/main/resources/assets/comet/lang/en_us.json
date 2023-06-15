@@ -18,5 +18,24 @@
   "comet.pronouns.pronoun.any": "any",
   "comet.pronouns.pronoun.other": "other",
   "comet.pronouns.pronoun.ask": "ask",
-  "comet.pronouns.pronoun.avoid": "avoid"
+  "comet.pronouns.pronoun.avoid": "avoid",
+
+  "comet.config.modules": "Comet",
+
+  "comet.config.modules.tooltip": "Better Tooltips [ᴇxᴘᴇʀɪᴍᴇɴᴛᴀʟ]",
+  "comet.config.modules.tooltip.description": "Subjectively better item tooltips for things like enchantments",
+  "comet.config.modules.tooltip.enabled": "Enabled",
+
+  "comet.config.modules.serverNameLength": "Unlimited Server Name Length",
+  "comet.config.modules.serverNameLength.description": "Disables the server name length limit",
+  "comet.config.modules.serverNameLength.enabled": "Enabled",
+
+  "comet.config.modules.discord": "Discord Rich Presence",
+  "comet.config.modules.discord.description": "A better Discord activity for Minecraft",
+  "comet.config.modules.discord.enabled": "Enabled",
+  "comet.config.modules.discord.client": "Application Client ID",
+
+  "comet.config.modules.unlockedSkinLoader": "Unlocked Skin Loader",
+  "comet.config.modules.unlockedSkinLoader.description": "Disables the skin loader domain whitelist and allows for high-resolution skins",
+  "comet.config.modules.unlockedSkinLoader.enabled": "Enabled"
 }

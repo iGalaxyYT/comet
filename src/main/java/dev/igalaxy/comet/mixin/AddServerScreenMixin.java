@@ -16,7 +16,7 @@ public class AddServerScreenMixin {
 
 	@Inject(method = "init", at = @At("TAIL"))
 	private void comet$init(CallbackInfo ci) {
-		if (Comet.INSTANCE.getCONFIG().getServerNameLengthTweak()) {
+		if (Comet.INSTANCE.getCONFIG().getServerNameLengthEnabled()) {
 			this.serverNameField.setMaxLength(Integer.MAX_VALUE);
 		}
 	}

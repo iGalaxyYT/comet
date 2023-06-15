@@ -1,9 +1,8 @@
 package dev.igalaxy.comet.config
 
-import com.google.gson.GsonBuilder
-import dev.isxander.yacl3.api.ConfigCategory
-import dev.isxander.yacl3.api.Option
-import dev.isxander.yacl3.api.YetAnotherConfigLib
+import dev.igalaxy.comet.modules.discord.CometDiscordModule
+import dev.isxander.yacl3.api.*
+import dev.isxander.yacl3.api.controller.StringControllerBuilder
 import dev.isxander.yacl3.api.controller.TickBoxControllerBuilder
 import dev.isxander.yacl3.config.ConfigEntry
 import dev.isxander.yacl3.config.GsonConfigInstance
@@ -15,40 +14,91 @@ class CometConfig {
     companion object {
         val INSTANCE: GsonConfigInstance<CometConfig> = GsonConfigInstance.createBuilder(CometConfig::class.java)
             .setPath(QuiltLoader.getConfigDir().resolve("comet.json"))
-            .appendGsonBuilder(GsonBuilder::setPrettyPrinting)
             .build()
 
         fun makeScreen(parent: Screen): Screen {
             return YetAnotherConfigLib.create(INSTANCE, fun(defaults: CometConfig, config: CometConfig, builder: YetAnotherConfigLib.Builder): YetAnotherConfigLib.Builder? {
-                return builder.title(Text.translatable("comet.config.title"))
+                return builder.title(Text.translatable("comet.config"))
                     .category(ConfigCategory.createBuilder()
-                        .name(Text.translatable("comet.config.group.modules.title"))
-                        .option(Option.createBuilder<Boolean>()
-                            .name(Text.translatable("comet.config.option.tooltipModule"))
-                            .binding(
-                                defaults.tooltipModule,
-                                { config.tooltipModule },
-                                { value: Boolean ->
-                                    config.tooltipModule = value
-                                }
+                        .name(Text.translatable("comet.config.modules"))
+                        .group(OptionGroup.createBuilder()
+                            .name(Text.translatable("comet.config.modules.tooltip"))
+                            .description(OptionDescription.of(Text.translatable("comet.config.modules.tooltip.description")))
+                            .option(Option.createBuilder<Boolean>()
+                                .name(Text.translatable("comet.config.modules.tooltip.enabled"))
+                                .binding(
+                                    defaults.tooltipEnabled,
+                                    { config.tooltipEnabled },
+                                    { value: Boolean ->
+                                        config.tooltipEnabled = value
+                                    }
+                                )
+                                .controller(TickBoxControllerBuilder::create)
+                                .build()
+                            ).build()
+                        )
+                        .group(OptionGroup.createBuilder()
+                            .name(Text.translatable("comet.config.modules.serverNameLength"))
+                            .description(OptionDescription.of(Text.translatable("comet.config.modules.serverNameLength.description")))
+                            .option(Option.createBuilder<Boolean>()
+                                .name(Text.translatable("comet.config.modules.serverNameLength.enabled"))
+                                .binding(
+                                    defaults.serverNameLengthEnabled,
+                                    { config.serverNameLengthEnabled },
+                                    { value: Boolean ->
+                                        config.serverNameLengthEnabled = value
+                                    }
+                                )
+                                .controller(TickBoxControllerBuilder::create)
+                                .build()
+                            ).build()
+                        )
+                        .group(OptionGroup.createBuilder()
+                            .name(Text.translatable("comet.config.modules.discord"))
+                            .description(OptionDescription.of(Text.translatable("comet.config.modules.discord.description")))
+                            .option(Option.createBuilder<Boolean>()
+                                .name(Text.translatable("comet.config.modules.discord.enabled"))
+                                .binding(
+                                    defaults.discordEnabled,
+                                    { config.discordEnabled },
+                                    { value: Boolean ->
+                                        config.discordEnabled = value
+                                        CometDiscordModule.checkClient()
+                                    }
+                                )
+                                .controller(TickBoxControllerBuilder::create)
+                                .build()
                             )
-                            .controller(TickBoxControllerBuilder::create)
-                            .build()
-                        ).build()
-                    ).category(ConfigCategory.createBuilder()
-                        .name(Text.translatable("comet.config.group.tweaks.title"))
-                        .option(Option.createBuilder<Boolean>()
-                            .name(Text.translatable("comet.config.option.serverNameLengthTweak"))
-                            .binding(
-                                defaults.serverNameLengthTweak,
-                                { config.serverNameLengthTweak },
-                                { value: Boolean ->
-                                    config.serverNameLengthTweak = value
-                                }
-                            )
-                            .controller(TickBoxControllerBuilder::create)
-                            .build()
-                        ).build()
+                            .option(Option.createBuilder<String>()
+                                .name(Text.translatable("comet.config.modules.discord.client"))
+                                .binding(
+                                    defaults.discordClient,
+                                    { config.discordClient },
+                                    { value: String ->
+                                        config.discordClient = value
+                                    }
+                                )
+                                .controller(StringControllerBuilder::create)
+                                .build()
+                            ).build()
+                        )
+                        .group(OptionGroup.createBuilder()
+                            .name(Text.translatable("comet.config.modules.unlockedSkinLoader"))
+                            .description(OptionDescription.of(Text.translatable("comet.config.modules.unlockedSkinLoader.description")))
+                            .option(Option.createBuilder<Boolean>()
+                                .name(Text.translatable("comet.config.modules.unlockedSkinLoader.enabled"))
+                                .binding(
+                                    defaults.unlockedSkinLoaderEnabled,
+                                    { config.unlockedSkinLoaderEnabled },
+                                    { value: Boolean ->
+                                        config.unlockedSkinLoaderEnabled = value
+                                    }
+                                )
+                                .controller(TickBoxControllerBuilder::create)
+                                .build()
+                            ).build()
+                        )
+                        .build()
                     ).save {
                         INSTANCE.save()
                     }
@@ -57,9 +107,18 @@ class CometConfig {
     }
 
     @ConfigEntry
-    var tooltipModule: Boolean = true
+    var tooltipEnabled: Boolean = false
 
     @ConfigEntry
-    var serverNameLengthTweak: Boolean = true
+    var serverNameLengthEnabled: Boolean = true
+
+    @ConfigEntry
+    var discordEnabled: Boolean = false
+
+    @ConfigEntry
+    var discordClient: String = "856709531668971551"
+
+    @ConfigEntry
+    var unlockedSkinLoaderEnabled: Boolean = true
 
 }

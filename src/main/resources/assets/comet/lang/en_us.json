@@ -37,5 +37,13 @@
 
   "comet.config.modules.unlockedSkinLoader": "Unlocked Skin Loader",
   "comet.config.modules.unlockedSkinLoader.description": "Disables the skin loader domain whitelist and allows for high-resolution skins",
-  "comet.config.modules.unlockedSkinLoader.enabled": "Enabled"
+  "comet.config.modules.unlockedSkinLoader.enabled": "Enabled",
+
+  "comet.config.modules.hud": "HUD",
+  "comet.config.modules.hud.description": "Various heads-up-displays",
+  "comet.config.modules.hud.enabled": "Enabled",
+  "comet.config.modules.hud.offsetX": "Text Offset X",
+  "comet.config.modules.hud.offsetY": "Text Offset Y",
+  "comet.config.modules.hud.shadow": "Text Shadow",
+  "comet.config.modules.hud.fps": "fps"
 }

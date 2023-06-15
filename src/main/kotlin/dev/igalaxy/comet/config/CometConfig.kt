@@ -2,6 +2,7 @@ package dev.igalaxy.comet.config
 
 import dev.igalaxy.comet.modules.discord.CometDiscordModule
 import dev.isxander.yacl3.api.*
+import dev.isxander.yacl3.api.controller.IntegerFieldControllerBuilder
 import dev.isxander.yacl3.api.controller.StringControllerBuilder
 import dev.isxander.yacl3.api.controller.TickBoxControllerBuilder
 import dev.isxander.yacl3.config.ConfigEntry
@@ -98,6 +99,66 @@ class CometConfig {
                                 .build()
                             ).build()
                         )
+                        .group(OptionGroup.createBuilder()
+                            .name(Text.translatable("comet.config.modules.hud"))
+                            .description(OptionDescription.of(Text.translatable("comet.config.modules.hud.description")))
+                            .option(Option.createBuilder<Boolean>()
+                                .name(Text.translatable("comet.config.modules.hud.enabled"))
+                                .binding(
+                                    defaults.hudEnabled,
+                                    { config.hudEnabled },
+                                    { value: Boolean ->
+                                        config.hudEnabled = value
+                                    }
+                                )
+                                .controller(TickBoxControllerBuilder::create)
+                                .build()
+                            ).option(Option.createBuilder<Int>()
+                                .name(Text.translatable("comet.config.modules.hud.offsetX"))
+                                .binding(
+                                    defaults.hudOffsetX,
+                                    { config.hudOffsetX },
+                                    { value: Int ->
+                                        config.hudOffsetX = value
+                                    }
+                                )
+                                .controller(IntegerFieldControllerBuilder::create)
+                                .build()
+                            ).option(Option.createBuilder<Int>()
+                                .name(Text.translatable("comet.config.modules.hud.offsetY"))
+                                .binding(
+                                    defaults.hudOffsetY,
+                                    { config.hudOffsetY },
+                                    { value: Int ->
+                                        config.hudOffsetY = value
+                                    }
+                                )
+                                .controller(IntegerFieldControllerBuilder::create)
+                                .build()
+                            ).option(Option.createBuilder<Boolean>()
+                                .name(Text.translatable("comet.config.modules.hud.shadow"))
+                                .binding(
+                                    defaults.hudShadow,
+                                    { config.hudShadow },
+                                    { value: Boolean ->
+                                        config.hudShadow = value
+                                    }
+                                )
+                                .controller(TickBoxControllerBuilder::create)
+                                .build()
+                            ).option(Option.createBuilder<Boolean>()
+                                .name(Text.translatable("comet.config.modules.hud.fps"))
+                                .binding(
+                                    defaults.hudFps,
+                                    { config.hudFps },
+                                    { value: Boolean ->
+                                        config.hudFps = value
+                                    }
+                                )
+                                .controller(TickBoxControllerBuilder::create)
+                                .build()
+                            ).build()
+                        )
                         .build()
                     ).save {
                         INSTANCE.save()
@@ -120,5 +181,20 @@ class CometConfig {
 
     @ConfigEntry
     var unlockedSkinLoaderEnabled: Boolean = true
+
+    @ConfigEntry
+    var hudEnabled: Boolean = false
+
+    @ConfigEntry
+    var hudOffsetX: Int = 24
+
+    @ConfigEntry
+    var hudOffsetY: Int = 24
+
+    @ConfigEntry
+    var hudShadow: Boolean = true
+
+    @ConfigEntry
+    var hudFps: Boolean = true
 
 }

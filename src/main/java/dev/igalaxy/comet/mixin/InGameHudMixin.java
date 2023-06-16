@@ -7,10 +7,13 @@ import net.minecraft.client.font.TextRenderer;
 import net.minecraft.client.gui.GuiGraphics;
 import net.minecraft.client.gui.hud.InGameHud;
 import net.minecraft.client.util.math.MatrixStack;
+import net.minecraft.text.Text;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
+
+import java.util.concurrent.atomic.AtomicInteger;
 
 @Mixin(InGameHud.class)
 public class InGameHudMixin {
@@ -19,7 +22,6 @@ public class InGameHudMixin {
 		MinecraftClient client = MinecraftClient.getInstance();
 
 		if (!client.options.debugEnabled && Comet.INSTANCE.getCONFIG().getHudEnabled()) {
-			String displayText = CometHudModule.INSTANCE.getHudText();
 			int textPosX = Comet.INSTANCE.getCONFIG().getHudOffsetX();
 			int textPosY = Comet.INSTANCE.getCONFIG().getHudOffsetY();
 
@@ -29,18 +31,22 @@ public class InGameHudMixin {
 				textPosY /= guiScale;
 			}
 
-			int maxTextPosX = client.getWindow().getScaledWidth() - client.textRenderer.getWidth(displayText);
-			int maxTextPosY = client.getWindow().getScaledHeight() - client.textRenderer.fontHeight;
-			textPosX = Math.min(textPosX, maxTextPosX);
-			textPosY = Math.min(textPosY, maxTextPosY);
-
 			int textColor = 0xFFFFFF;
 
-			this.renderText(graphics, client.textRenderer, displayText, textPosX, textPosY, textColor, 1.0f, true);
+			int finalTextPosX = textPosX;
+			int finalTextPosY = textPosY;
+			AtomicInteger lineNum = new AtomicInteger();
+			Comet.INSTANCE.getCONFIG().getHudLines().forEach(line -> {
+				Text text = line.getText();
+				if (text != null) {
+					int num = lineNum.getAndIncrement();
+					this.renderText(graphics, client.textRenderer, text, finalTextPosX, finalTextPosY + ((client.textRenderer.fontHeight + 2) * num), textColor, 1.0f, true);
+				}
+			});
 		}
 	}
 
-	private void renderText(GuiGraphics context, TextRenderer textRenderer, String text, int x, int y, int color, float scale, boolean shadowed) {
+	private void renderText(GuiGraphics context, TextRenderer textRenderer, Text text, int x, int y, int color, float scale, boolean shadowed) {
 		MatrixStack matrixStack = context.getMatrices();
 
 		matrixStack.push();

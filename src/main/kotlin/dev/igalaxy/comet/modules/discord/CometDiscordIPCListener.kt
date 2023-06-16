@@ -30,15 +30,7 @@ class CometDiscordIPCListener : IPCListener {
     }
 
     override fun onReady(client: IPCClient?) {
-        val minecraftVersion = QuiltLoader.getNormalizedGameVersion()
-        val quiltVersion = QuiltLoader.getModContainer("quilt_loader").get().metadata().version().raw()
-
-        val builder = RichPresence.Builder()
-        builder
-            .setStartTimestamp(System.currentTimeMillis())
-            .setLargeImage("grass_block", "Minecraft $minecraftVersion")
-            .setSmallImage("quilt", "Quilt Loader $quiltVersion")
-        client?.sendRichPresence(builder.build())
+        CometDiscordModule.clientReady()
     }
 
     override fun onClose(client: IPCClient?, json: JsonObject?) {

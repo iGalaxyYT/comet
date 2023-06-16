@@ -3,18 +3,20 @@ package dev.igalaxy.comet.modules.hud
 import dev.igalaxy.comet.Comet
 import dev.igalaxy.comet.modules.CometModule
 import net.minecraft.client.MinecraftClient
+import net.minecraft.stat.Stat
+import net.minecraft.stat.StatType
+import net.minecraft.stat.Stats
+import kotlin.math.floor
 
 object CometHudModule : CometModule {
     override val enabled: Boolean
         get() = Comet.CONFIG.hudEnabled
 
-    fun getHudText(): String {
-        val builder = StringBuilder("")
+    var playtimeHours: Int = -1
+    var playtimeSeconds: Int = -1
+    var playtimeCheck: Long = -1
 
-        if (Comet.CONFIG.hudFps) {
-            builder.append("${MinecraftClient.getInstance().currentFps} fps")
-        }
+    val showExistencePlaytime: Boolean
+        get() = System.currentTimeMillis() - playtimeCheck <= 2000
 
-        return builder.toString()
-    }
 }

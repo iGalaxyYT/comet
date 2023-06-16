@@ -9,7 +9,8 @@
     "InGameHudMixin",
     "PlayerSkinTextureInvoker",
     "PlayerSkinTextureMixin",
-    "TextureUrlCheckerMixin"
+    "TextureUrlCheckerMixin",
+    "ClientPlayNetworkHandlerMixin"
   ],
   "injectors": {
     "defaultRequire": 1

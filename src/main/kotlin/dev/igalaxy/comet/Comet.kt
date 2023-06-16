@@ -6,6 +6,8 @@ import dev.igalaxy.comet.modules.tooltip.CometTooltipModule
 import net.minecraft.util.Identifier
 import org.quiltmc.loader.api.ModContainer
 import org.quiltmc.qsl.base.api.entrypoint.ModInitializer
+import org.quiltmc.qsl.lifecycle.api.client.event.ClientLifecycleEvents
+import org.quiltmc.qsl.lifecycle.api.client.event.ClientWorldTickEvents
 import org.quiltmc.qsl.resource.loader.api.ResourceLoader
 import org.quiltmc.qsl.resource.loader.api.ResourcePackActivationType
 import org.slf4j.Logger

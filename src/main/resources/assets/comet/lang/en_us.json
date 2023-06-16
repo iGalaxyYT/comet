@@ -45,5 +45,8 @@
   "comet.config.modules.hud.offsetX": "Text Offset X",
   "comet.config.modules.hud.offsetY": "Text Offset Y",
   "comet.config.modules.hud.shadow": "Text Shadow",
-  "comet.config.modules.hud.fps": "fps"
+  "comet.config.modules.hud.lines": "HUD Lines",
+  "comet.config.modules.hud.lines.description": "§lPlaytime:§r Only enabled on server.existencesmp.com, creative.existencesmp.com, and creative.nbrand.net",
+  "comet.config.modules.hud.fps": "FPS",
+  "comet.config.modules.hud.playtime": "Playtime"
 }

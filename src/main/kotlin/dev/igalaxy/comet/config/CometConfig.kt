@@ -1,12 +1,15 @@
 package dev.igalaxy.comet.config
 
 import dev.igalaxy.comet.modules.discord.CometDiscordModule
+import dev.igalaxy.comet.modules.hud.CometHudLine
 import dev.isxander.yacl3.api.*
+import dev.isxander.yacl3.api.controller.EnumControllerBuilder
 import dev.isxander.yacl3.api.controller.IntegerFieldControllerBuilder
 import dev.isxander.yacl3.api.controller.StringControllerBuilder
 import dev.isxander.yacl3.api.controller.TickBoxControllerBuilder
 import dev.isxander.yacl3.config.ConfigEntry
 import dev.isxander.yacl3.config.GsonConfigInstance
+import dev.isxander.yacl3.gui.controllers.cycling.EnumController
 import net.minecraft.client.gui.screen.Screen
 import net.minecraft.text.Text
 import org.quiltmc.loader.api.QuiltLoader
@@ -146,18 +149,24 @@ class CometConfig {
                                 )
                                 .controller(TickBoxControllerBuilder::create)
                                 .build()
-                            ).option(Option.createBuilder<Boolean>()
-                                .name(Text.translatable("comet.config.modules.hud.fps"))
-                                .binding(
-                                    defaults.hudFps,
-                                    { config.hudFps },
-                                    { value: Boolean ->
-                                        config.hudFps = value
-                                    }
-                                )
-                                .controller(TickBoxControllerBuilder::create)
-                                .build()
-                            ).build()
+                            )
+                            .build()
+                        )
+                        .group(ListOption.createBuilder<CometHudLine>()
+                            .name(Text.translatable("comet.config.modules.hud.lines"))
+                            .description(OptionDescription.of(Text.translatable("comet.config.modules.hud.lines.description")))
+                            .binding(
+                                defaults.hudLines,
+                                { config.hudLines },
+                                { value: List<CometHudLine> ->
+                                    config.hudLines = value
+                                }
+                            )
+                            .customController {
+                                EnumController(it, CometHudLine::class.java)
+                            }
+                            .initial(CometHudLine.FPS)
+                            .build()
                         )
                         .build()
                     ).save {
@@ -195,6 +204,6 @@ class CometConfig {
     var hudShadow: Boolean = true
 
     @ConfigEntry
-    var hudFps: Boolean = true
+    var hudLines: List<CometHudLine> = listOf()
 
 }

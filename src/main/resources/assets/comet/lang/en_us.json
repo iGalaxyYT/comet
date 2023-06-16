@@ -20,7 +20,7 @@
   "comet.pronouns.pronoun.ask": "ask",
   "comet.pronouns.pronoun.avoid": "avoid",
 
-  "comet.config.modules": "Comet",
+  "comet.config.modules.general": "General",
 
   "comet.config.modules.tooltip": "Better Tooltips [ᴇxᴘᴇʀɪᴍᴇɴᴛᴀʟ]",
   "comet.config.modules.tooltip.description": "Subjectively better item tooltips for things like enchantments",
@@ -40,6 +40,7 @@
   "comet.config.modules.unlockedSkinLoader.enabled": "Enabled",
 
   "comet.config.modules.hud": "HUD",
+
   "comet.config.modules.hud.description": "Various heads-up-displays",
   "comet.config.modules.hud.enabled": "Enabled",
   "comet.config.modules.hud.offsetX": "Text Offset X",

@@ -24,7 +24,7 @@ class CometConfig {
             return YetAnotherConfigLib.create(INSTANCE, fun(defaults: CometConfig, config: CometConfig, builder: YetAnotherConfigLib.Builder): YetAnotherConfigLib.Builder? {
                 return builder.title(Text.translatable("comet.config"))
                     .category(ConfigCategory.createBuilder()
-                        .name(Text.translatable("comet.config.modules"))
+                        .name(Text.translatable("comet.config.modules.general"))
                         .group(OptionGroup.createBuilder()
                             .name(Text.translatable("comet.config.modules.tooltip"))
                             .description(OptionDescription.of(Text.translatable("comet.config.modules.tooltip.description")))
@@ -102,54 +102,52 @@ class CometConfig {
                                 .build()
                             ).build()
                         )
-                        .group(OptionGroup.createBuilder()
-                            .name(Text.translatable("comet.config.modules.hud"))
-                            .description(OptionDescription.of(Text.translatable("comet.config.modules.hud.description")))
-                            .option(Option.createBuilder<Boolean>()
-                                .name(Text.translatable("comet.config.modules.hud.enabled"))
-                                .binding(
-                                    defaults.hudEnabled,
-                                    { config.hudEnabled },
-                                    { value: Boolean ->
-                                        config.hudEnabled = value
-                                    }
-                                )
-                                .controller(TickBoxControllerBuilder::create)
-                                .build()
-                            ).option(Option.createBuilder<Int>()
-                                .name(Text.translatable("comet.config.modules.hud.offsetX"))
-                                .binding(
-                                    defaults.hudOffsetX,
-                                    { config.hudOffsetX },
-                                    { value: Int ->
-                                        config.hudOffsetX = value
-                                    }
-                                )
-                                .controller(IntegerFieldControllerBuilder::create)
-                                .build()
-                            ).option(Option.createBuilder<Int>()
-                                .name(Text.translatable("comet.config.modules.hud.offsetY"))
-                                .binding(
-                                    defaults.hudOffsetY,
-                                    { config.hudOffsetY },
-                                    { value: Int ->
-                                        config.hudOffsetY = value
-                                    }
-                                )
-                                .controller(IntegerFieldControllerBuilder::create)
-                                .build()
-                            ).option(Option.createBuilder<Boolean>()
-                                .name(Text.translatable("comet.config.modules.hud.shadow"))
-                                .binding(
-                                    defaults.hudShadow,
-                                    { config.hudShadow },
-                                    { value: Boolean ->
-                                        config.hudShadow = value
-                                    }
-                                )
-                                .controller(TickBoxControllerBuilder::create)
-                                .build()
+                        .build()
+                    ).category(ConfigCategory.createBuilder()
+                        .name(Text.translatable("comet.config.modules.hud"))
+                        .option(Option.createBuilder<Boolean>()
+                            .name(Text.translatable("comet.config.modules.hud.enabled"))
+                            .binding(
+                                defaults.hudEnabled,
+                                { config.hudEnabled },
+                                { value: Boolean ->
+                                    config.hudEnabled = value
+                                }
                             )
+                            .controller(TickBoxControllerBuilder::create)
+                            .build()
+                        ).option(Option.createBuilder<Int>()
+                            .name(Text.translatable("comet.config.modules.hud.offsetX"))
+                            .binding(
+                                defaults.hudOffsetX,
+                                { config.hudOffsetX },
+                                { value: Int ->
+                                    config.hudOffsetX = value
+                                }
+                            )
+                            .controller(IntegerFieldControllerBuilder::create)
+                            .build()
+                        ).option(Option.createBuilder<Int>()
+                            .name(Text.translatable("comet.config.modules.hud.offsetY"))
+                            .binding(
+                                defaults.hudOffsetY,
+                                { config.hudOffsetY },
+                                { value: Int ->
+                                    config.hudOffsetY = value
+                                }
+                            )
+                            .controller(IntegerFieldControllerBuilder::create)
+                            .build()
+                        ).option(Option.createBuilder<Boolean>()
+                            .name(Text.translatable("comet.config.modules.hud.shadow"))
+                            .binding(
+                                defaults.hudShadow,
+                                { config.hudShadow },
+                                { value: Boolean ->
+                                    config.hudShadow = value
+                                }
+                            )
+                            .controller(TickBoxControllerBuilder::create)
                             .build()
                         )
                         .group(ListOption.createBuilder<CometHudLine>()

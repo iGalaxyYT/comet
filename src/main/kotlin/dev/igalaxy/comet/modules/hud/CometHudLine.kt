@@ -6,7 +6,11 @@ import net.minecraft.text.Text
 import kotlin.math.floor
 
 enum class CometHudLine : NameableEnum {
-    FPS {
+    BLANK {
+        override fun getText(): Text? {
+            return Text.empty()
+        }
+    }, FPS {
         override fun getText(): Text? {
             return Text.of("${MinecraftClient.getInstance().currentFps} fps")
         }
@@ -19,10 +23,6 @@ enum class CometHudLine : NameableEnum {
                 return Text.of("${CometHudModule.playtimeHours}h ${playtimeMinutes}m ${correctPlaytimeSeconds}s")
             }
             return null
-        }
-    }, BLANK {
-        override fun getText(): Text? {
-            return Text.empty()
         }
     };
 

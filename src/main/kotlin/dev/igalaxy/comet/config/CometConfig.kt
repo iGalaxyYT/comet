@@ -163,7 +163,7 @@ class CometConfig {
                             .customController {
                                 EnumController(it, CometHudLine::class.java)
                             }
-                            .initial(CometHudLine.FPS)
+                            .initial(CometHudLine.BLANK)
                             .build()
                         )
                         .build()

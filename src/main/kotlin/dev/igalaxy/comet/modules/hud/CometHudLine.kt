@@ -20,6 +20,10 @@ enum class CometHudLine : NameableEnum {
             }
             return null
         }
+    }, BLANK {
+        override fun getText(): Text? {
+            return Text.empty()
+        }
     };
 
     override fun getDisplayName(): Text {

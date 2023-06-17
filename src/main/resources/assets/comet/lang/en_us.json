@@ -49,5 +49,6 @@
   "comet.config.modules.hud.lines": "HUD Lines",
   "comet.config.modules.hud.lines.description": "§lPlaytime:§r Only enabled on server.existencesmp.com, creative.existencesmp.com, and creative.nbrand.net",
   "comet.config.modules.hud.fps": "FPS",
-  "comet.config.modules.hud.playtime": "Playtime"
+  "comet.config.modules.hud.playtime": "Playtime",
+  "comet.config.modules.hud.blank": "Blank"
 }

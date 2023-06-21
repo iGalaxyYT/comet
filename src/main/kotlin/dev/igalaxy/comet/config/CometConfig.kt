@@ -102,6 +102,22 @@ class CometConfig {
                                 .build()
                             ).build()
                         )
+                        .group(OptionGroup.createBuilder()
+                            .name(Text.translatable("comet.config.modules.emoji"))
+                            .description(OptionDescription.of(Text.translatable("comet.config.modules.emoji.description")))
+                            .option(Option.createBuilder<Boolean>()
+                                .name(Text.translatable("comet.config.modules.emoji.enabled"))
+                                .binding(
+                                    defaults.emojiEnabled,
+                                    { config.emojiEnabled },
+                                    { value: Boolean ->
+                                        config.emojiEnabled = value
+                                    }
+                                )
+                                .controller(TickBoxControllerBuilder::create)
+                                .build()
+                            ).build()
+                        )
                         .build()
                     ).category(ConfigCategory.createBuilder()
                         .name(Text.translatable("comet.config.modules.hud"))
@@ -182,7 +198,6 @@ class CometConfig {
 
     @ConfigEntry
     var discordEnabled: Boolean = false
-
     @ConfigEntry
     var discordClient: String = "856709531668971551"
 
@@ -191,17 +206,16 @@ class CometConfig {
 
     @ConfigEntry
     var hudEnabled: Boolean = false
-
     @ConfigEntry
     var hudOffsetX: Int = 24
-
     @ConfigEntry
     var hudOffsetY: Int = 24
-
     @ConfigEntry
     var hudShadow: Boolean = true
-
     @ConfigEntry
     var hudLines: List<CometHudLine> = listOf()
+
+    @ConfigEntry
+    var emojiEnabled: Boolean = true
 
 }

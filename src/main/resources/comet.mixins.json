@@ -6,11 +6,12 @@
   "mixins": [],
   "client": [
     "AddServerScreenMixin",
+    "ClientPlayNetworkHandlerMixin",
+    "CommandSuggestorMixin",
     "InGameHudMixin",
     "PlayerSkinTextureInvoker",
     "PlayerSkinTextureMixin",
-    "TextureUrlCheckerMixin",
-    "ClientPlayNetworkHandlerMixin"
+    "TextureUrlCheckerMixin"
   ],
   "injectors": {
     "defaultRequire": 1

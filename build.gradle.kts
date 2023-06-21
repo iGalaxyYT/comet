@@ -48,6 +48,8 @@ dependencies {
 	modImplementation(libs.yacl)
 	modImplementation(libs.discord)
 	include(libs.discord)?.let { modImplementation(it) }
+	modImplementation(libs.emoji)
+	include(libs.emoji)?.let { modImplementation(it) }
 
 	modImplementation(libs.modmenu)
 

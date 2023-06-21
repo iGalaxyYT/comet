@@ -10,6 +10,7 @@ loom = "1.2+"
 
 yacl = "3.0.1+1.20"
 discord = "0.6.5"
+emoji = "5622646ccb"
 
 modmenu = "7.0.1"
 
@@ -29,6 +30,7 @@ quilt_mappings = { module = "org.quiltmc:quilt-mappings", version.ref = "mapping
 
 yacl = { module = "dev.isxander.yacl:yet-another-config-lib-fabric", version.ref = "yacl" }
 discord = { module = "io.github.CDAGaming:DiscordIPC", version.ref = "discord" }
+emoji = { module = "com.github.minndevelopment:emoji-java", version.ref = "emoji" }
 
 modmenu = { module = "com.terraformersmc:modmenu", version.ref = "modmenu" }
 

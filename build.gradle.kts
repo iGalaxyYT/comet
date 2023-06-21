@@ -50,6 +50,8 @@ dependencies {
 	include(libs.discord)?.let { modImplementation(it) }
 	modImplementation(libs.emoji)
 	include(libs.emoji)?.let { modImplementation(it) }
+	modImplementation("org.json:json:20211205")
+	include("org.json:json:20211205")?.let { modImplementation(it) }
 
 	modImplementation(libs.modmenu)
 

@@ -31,6 +31,8 @@ repositories {
 			includeGroup("maven.modrinth")
 		}
 	}
+
+	mavenCentral()
 }
 
 dependencies {
@@ -52,6 +54,8 @@ dependencies {
 	include(libs.emoji)?.let { modImplementation(it) }
 	modImplementation("org.json:json:20211205")
 	include("org.json:json:20211205")?.let { modImplementation(it) }
+	modImplementation(libs.adventure)
+	include(libs.adventure)?.let { modImplementation(it) }
 
 	modImplementation(libs.modmenu)
 

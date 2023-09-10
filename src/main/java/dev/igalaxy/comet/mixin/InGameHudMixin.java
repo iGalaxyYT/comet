@@ -1,16 +1,19 @@
 package dev.igalaxy.comet.mixin;
 
 import dev.igalaxy.comet.Comet;
-import dev.igalaxy.comet.modules.hud.CometHudModule;
 import net.minecraft.client.MinecraftClient;
 import net.minecraft.client.font.TextRenderer;
 import net.minecraft.client.gui.GuiGraphics;
 import net.minecraft.client.gui.hud.InGameHud;
+import net.minecraft.client.network.PlayerListEntry;
 import net.minecraft.client.util.math.MatrixStack;
+import net.minecraft.scoreboard.AbstractTeam;
+import net.minecraft.text.MutableText;
 import net.minecraft.text.Text;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
+import org.spongepowered.asm.mixin.injection.Redirect;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
 import java.util.concurrent.atomic.AtomicInteger;
@@ -45,6 +48,16 @@ public class InGameHudMixin {
 			});
 		}
 	}
+
+//	@Redirect(method = "renderScoreboardSidebar", at = @At(value = "INVOKE", target = "Lnet/minecraft/scoreboard/Team;decorateName(Lnet/minecraft/scoreboard/AbstractTeam;Lnet/minecraft/text/Text;)Lnet/minecraft/text/MutableText;"))
+//	private MutableText comet$decorateTeam(AbstractTeam team, Text name) {
+//		PlayerListEntry playerListEntry = MinecraftClient.getInstance().getNetworkHandler().getPlayerListEntry(name.getString());
+//		if (playerListEntry != null) {
+//			return playerListEntry.getDisplayName().copy();
+//		} else if (team != null) {
+//			return team.decorateName(name);
+//		} else return name.copy();
+//	}
 
 	private void renderText(GuiGraphics context, TextRenderer textRenderer, Text text, int x, int y, int color, float scale, boolean shadowed) {
 		MatrixStack matrixStack = context.getMatrices();
